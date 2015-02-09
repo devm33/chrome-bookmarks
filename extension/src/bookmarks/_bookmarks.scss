@@ -1,0 +1,29 @@
+bookmarks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 20px;
+
+    a[bookmark] {
+        color: $bookmark-color;
+        text-decoration: none;
+        cursor: pointer;
+        display: block;
+        padding: 5px;
+
+        &:hover {
+            background-color: $bookmark-hover-color;
+        }
+
+        .item {
+            vertical-align: middle;
+            margin: 5px;
+        }
+
+        .index {
+            display: inline-block;
+            width: 10px;
+            text-align: center;
+        }
+    }
+}

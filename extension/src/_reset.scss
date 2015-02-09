@@ -1,0 +1,36 @@
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+body {
+    -webkit-align-items: center;
+    -webkit-flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    -webkit-justify-content: center;
+}
+
+body, input {
+    display: -webkit-flex;
+    font-family: $body-font;
+    background-color: $body-bg-color;
+}
+
+h1,h2,h3 {
+    color: $header-color;
+    font-size: 1.2rem;
+    line-height: 1;
+    margin: 0;
+}
+

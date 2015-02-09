@@ -1,0 +1,22 @@
+{
+  "name": "chrome-bookmarks",
+  "version": "1.0.0",
+  "description": "chrome extension bookmarks component",
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-load-plugins": "*",
+    "gulp-raster": "*",
+    "gulp-rename": "*",
+    "lodash": ">=3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devm33/chrome-bookmarks.git"
+  },
+  "author": "Mehta, Devraj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devm33/chrome-bookmarks/issues"
+  },
+  "homepage": "https://github.com/devm33/chrome-bookmarks"
+}

@@ -1,0 +1,23 @@
+context-menu {
+    display: none;
+}
+
+context-menu.show {
+    display: block;
+    position: fixed;
+    color: black;
+    background-color: white;
+    min-width: 200px;
+    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow: #333 1px 1px 10px;
+}
+
+context-menu-item {
+    display: block;
+    padding: 10px 20px;
+}
+
+context-menu-item:hover {
+    background-color: #ccc;
+}

@@ -1,0 +1,15 @@
+/* Main sass file for app */
+
+$body-font: 'Avenir', 'helvetica neue', helvetica, arial, sans-serif;
+$body-bg-color: #848484;
+
+$header-color: #B0B5B9;
+$counter-color: #494949;
+
+$bookmark-color: #FFffFF;
+$bookmark-hover-color: #575757;
+
+@import 'reset';
+
+@import 'bookmarks/bookmarks';
+@import 'context-menu/context-menu';
