@@ -1,29 +1,25 @@
 var gulp = require('gulp');
 var _ = require('lodash');
 
-var $ = require('gulp-load-plugins')();
+var batch = require('gulp-batch');
+var runSequence = require('run-sequence');
+var rimraf = require('rimraf');
+var watch = require('gulp-watch');
 
-var src = 'extension/src/';
-var dest = 'extension/built/';
+var src = 'src/';
+var dest = 'dist/';
 var config = {
     icons: {
         src: src + 'icon.svg',
         sizes: [16, 48, 128],
         svgSize: 16,
-        tasks: [] // populated by task def loop
     }
 };
 
-// icons tasks
-_.forEach(config.icons.sizes, function(size) {
-    var task = 'icon-' + size;
-    config.icons.tasks.push(task);
-    gulp.task(task, function() {
-        return gulp.src(config.icons.src)
-        .pipe($.raster({ scale: size / config.icons.svgSize }))
-        .pipe($.rename(task + '.png'))
-        .pipe(gulp.dest(dest));
-    });
+gulp.task('icons', require('./gulp/icons')(gulp, dest, config.icons));
+
+gulp.task('clean', function(cb) {
+    rimraf(dest, cb);
 });
 
 gulp.task('build', _.reduce(config, function(result, opts, task) {
@@ -34,4 +30,20 @@ gulp.task('build', _.reduce(config, function(result, opts, task) {
     return result;
 }, []));
 
-gulp.task('default', ['build']);
+gulp.task('watch', ['default'], function() {
+    _.each(config, function(opts, task) {
+        if(opts.src) {
+            watch(opts.src, batch(function(){
+                if(opts.tasks) {
+                    gulp.start.apply(gulp, opts.tasks);
+                } else {
+                    gulp.start(task);
+                }
+            }));
+        }
+    });
+});
+
+gulp.task('default', function(cb) {
+    runSequence('clean', 'build', cb);
+});
